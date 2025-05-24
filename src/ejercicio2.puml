@@ -1,0 +1,25 @@
+@startuml
+
+class pedido{
+    +cantProductos: String
+    +precios: String
+    +AgregarProducto():void
+    +CalcularTotal():void
+}
+
+class productos{
+    +nombre: String
+    +precio: int
+    +codigo: int
+}
+
+class cliente{
+   +nombre: String
+   +correo:Strig
+   +cedula: int
+   +direccion: String
+}
+
+cliente "*"--"*" pedido:realiza
+pedido "*"--"*" productos:tiene
+@enduml

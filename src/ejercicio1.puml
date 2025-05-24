@@ -1,0 +1,18 @@
+@startuml
+class contacto{
+    +nombre:String
+    +telefono: int
+    +correo:String
+    BuscarContacto():void
+    EliminarContacto():void
+    AgregarContacto():void
+}
+
+class etiqueta{
+    trabajo
+    familia
+    amistad
+
+}
+contacto "*"--"*" etiqueta: tiene
+@enduml

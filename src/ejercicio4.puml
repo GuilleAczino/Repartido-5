@@ -1,0 +1,60 @@
+@startuml
+class Usuario extends Estudiante,Docente,Egresado{
+    +NombreUser: String
+    +Edad: int
+    +Email: String
+    +FechaRegistro: date
+    +PerfilPublico:Boolean
+    +publicar():void
+    +comentar():void
+    +UnirseAGrupo():void
+    +SeguirUsuario():void
+}
+
+class Estudiante{
+    +Carrera
+    +Matricula
+    +FechaIngreso
+}
+
+class Docente{
+    +Departamento
+    +Cargo
+    +NumEmpleado
+}
+
+class Egresado{
+    +Generacion
+    +Matricula
+    +FechaEgreso
+}
+class Publicacion{
+    +IdPublicacion:int
+    +Titulo: String
+    +Comentacios: String
+    +FechaCreacion: date
+    +FechaModificacion:date
+    +visibilidad: booleand
+}
+
+class Comentario{
+    +idComntacio:int
+    +texto: String
+    +FechaComentacio:date
+}
+
+class Grupo{
+    +IdGrupo:int
+    +Nombre: String
+    +Descripcion: String
+    +FechaCreacion: date
+    +Privacidad: Boolean
+
+}
+
+Usuario "1"--"*" Publicacion:crea
+Usuario "1"--"*" Comentario: hace
+Usuario "1"--"*" Grupo:estar
+
+
+@enduml

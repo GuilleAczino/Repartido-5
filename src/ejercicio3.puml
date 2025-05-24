@@ -1,0 +1,56 @@
+@startuml
+class paciente{
+    +nombre:String
+    +CI: int
+    +direccion: String
+    +telefono: int
+    +email: String
+
+}
+
+class medico extends cirujano,clinico{
+    +IDMedico: int
+    +Nombre:String
+    +MatriculaMedico:String
+    +Telefono: int
+    +email: String
+
+}
+class cirujano{
+    +Especialidad: String
+}
+
+class clinico{
+    +Especialidad: String
+}
+
+class turno{
+    +IdTurno:int
+    +Fecha:date
+    +Hora: int
+    +Motivo: String
+    +Estado: String
+}
+
+class area{
+    +IDArea:int
+    +Nombre:String
+    +Descripccion: String
+
+}
+
+class hospital{
+    -RutHospital:String
+    -Direccion:String
+    -Tratamiento: String
+}
+
+hospital "*"--"*" paciente: gestiona
+hospital "*"--"*" medico: gestiona
+hospital "*"--"*" turnos: gestiona
+paciente "1"--"1" hospital: tiene
+paciente "1"--"*" turno: tiene
+turno "1"--"*" medico: atiende
+medico "1"--"1" area: pertenece
+medico "1"--"*" paciente: atiende
+@enduml
